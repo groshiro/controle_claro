@@ -1,0 +1,49 @@
+<body>
+    <div class="login-container">
+        <p style="font-weight: bold; padding: 10px; color: #333; ">
+            <?php echo $status_conexao; ?>
+        </p>
+
+        <h1>Acessar a conta</h1>
+        <form action="validar_login.php" method="POST">
+            <label for="usuario">Login:</label>
+            <input type="text" id="usuario" name="login" required><br><br>
+
+            <label for="pswd">Senha:</label>
+            <input type="password" id="pswd" name="pswd" required><br><br>
+
+
+            <button type="submit">Entrar</button>
+
+            <p style="text-align: center; margin-top: 15px;">
+                Novo Usuário:
+                <a href="cadastro_usuario.php" class="link-cadastro-usuario">Criar Conta</a>
+            </p>
+        </form>
+
+        <div id="alerta-erro" style="color: red; margin-top: 10px; font-weight: bold;"></div>
+
+        <script>
+            // ... script JavaScript de leitura da URL (mantido inalterado) ...
+            const params = new URLSearchParams(window.location.search);
+
+            if (params.has('erro')) {
+                const codigoErro = params.get('erro');
+                let mensagem = "";
+                const alertaDiv = document.getElementById('alerta-erro');
+
+                if (codigoErro === '1') {
+                    mensagem = "Erro: Usuário ou senha inválidos.";
+                } else if (codigoErro === '3') {
+                    mensagem = "Erro Crítico: Falha na conexão com o BD.";
+                } else if (codigoErro === '2') {
+                    mensagem = "Erro: Por favor, preencha todos os campos.";
+                }
+
+                alertaDiv.innerHTML = mensagem;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
