@@ -177,24 +177,28 @@ require_once 'conexao.php';
             text-decoration: underline;
             /* Faz o sublinhado aparecer no hover */
         }
-        .link-cadastro-usuario {
+        .link-cadastro-usuario,
+        .link-forgot-usuario {
             color: #007bff;
             /* Cor principal (azul) */
             text-decoration: none;
             /* Remove o sublinhado padrão */
             font-weight: bold;
             /* Deixa o texto em negrito */
-
+            
             /* Adiciona uma transição suave para que o efeito não seja abrupto */
+            text-align: left;
             transition: color 0.2s ease, text-decoration 0.2s ease;
         }
 
         /* 2. Estilos para o Hover */
-        .link-cadastro-usuario:hover {
+        .link-cadastro-usuario:hover,
+        .link-forgot-usuario:hover {
             color: #09f030ff;
             /* Mude para uma cor de destaque (vermelho) no hover */
             text-decoration: underline;
             /* Faz o sublinhado aparecer no hover */
+            cursor: pointer;
         }
     </style>
 </head>
@@ -217,9 +221,13 @@ require_once 'conexao.php';
             <button type="submit">Entrar</button>
             
             <p style="text-align: center; margin-top: 15px;">
-                Novo Usuário:
+                Criar uma nova conta:
                 <a href="cadastro_usuario.php" class="link-cadastro-usuario">Criar Conta</a>
                 </p>
+                <p style="text-align: center; margin-top: 5px;">
+                Redefinir senha:
+                <a href="forgot_password.php" class="link-forgot-usuario">Esqueci Minha Senha</a> 
+                 </p>
         </form>
 
         <div id="alerta-erro" style="color: red; margin-top: 10px; font-weight: bold;"></div>
